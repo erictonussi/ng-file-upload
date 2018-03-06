@@ -306,7 +306,7 @@ ngFileUpload.service('UploadBase', ['$http', '$q', '$timeout', function ($http, 
       config.headers['Content-Type'] = undefined;
       config.transformRequest = config.transformRequest ?
         (angular.isArray(config.transformRequest) ?
-          config.transformRequest : [config.transformRequest]) : [];
+          config.transformRequest : [config.transformRequest]) : $http.defaults.transformRequest;
       config.transformRequest.push(function (data) {
         var formData = new window.FormData(), key;
         data = data || config.fields || {};
